@@ -1,0 +1,89 @@
+.header {
+    display:flex;
+    background-color: #f8f9fa;
+    /* padding: 20px; */
+    justify-content: space-between;
+}
+
+.logo-container {
+    
+    display: inline-block;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.nav-items {
+    padding: 0px 20px;
+}
+
+.nav-items ul {
+    list-style-type: none;
+    font-size: 24px;
+    margin-left: 250px;
+    margin-right: 250px;    
+    display: flex;
+    vertical-align:middle;
+}
+
+.nav-items li {
+    /* display: inline; */
+    margin: 25px;
+    padding: 20px;  
+    cursor: pointer;
+}
+
+.logo {
+    margin-left: 50px;
+    width: 200px; /* Example styling */
+}
+
+.search {
+    padding: 15px;
+}
+
+
+/* index.css */
+
+.res-container {
+    display: flex;
+    flex-wrap: wrap;     
+}
+
+.res-card {
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    align-items: center;  /*Centers the content horizontally */
+    justify-content: center; /*Centers the content vertically  */
+    width:150px;
+    height: 250px;
+    background-color: #e8e3e3;
+    padding: 100px;
+    text-align: center; /* Center text inside the res-card */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 5px;
+}
+
+.res-card:hover {
+    cursor: pointer;
+    border: 2px solid #007BFF; /* New border on hover */
+}
+
+
+.resimg {
+    max-width: 100%; /* Makes the image responsive */
+    height: auto;
+    /* margin-top: 20px; Adds space above the image to push it down */
+    /* margin-bottom: 20px; Keeps the space below the image */
+    margin-left: 0px;
+    padding: 5px;   
+}
+
+
+  
+  
+
+
+
+
