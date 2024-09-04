@@ -1,6 +1,7 @@
 import { ResList } from "./Utils/MockData";
 import React, { useEffect, useState } from 'react';
 import RestaurantCard from './RestaurantCard'; // Ensure this import is correct and the file exists
+import Shimmer from "./Shimmer";
 
 const Body = () => {
 
@@ -71,8 +72,9 @@ const Body = () => {
         setlistOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
 
-
-  return (
+    //SHIMMER EFFECT   &  CONDITIONAL RENDERING
+    
+    return (listOfRestaurants.length === 0) ? <Shimmer /> : (
     <div className="body">
       <div className="filter">
         <button

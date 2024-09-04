@@ -90,6 +90,37 @@
     padding: 5px;   
 }
 
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the shimmer cards */
+    gap: 20px; /* Add some space between the shimmer cards */
+    padding: 20px; /* Add padding to the container */
+}
+
+.shimmer-cards {
+    height: 400px;
+    width: 250px;
+    background-color: #f6f7f8;
+    border-radius: 12px; /* Increase the border-radius for a softer look */
+    margin: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soften the shadow */
+
+    background: linear-gradient(90deg, #f6f7f8 25%, #edeef1 50%, #f6f7f8 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s infinite linear;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
 
   
   
