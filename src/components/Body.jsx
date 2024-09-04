@@ -1,8 +1,11 @@
 import { ResList } from "./Utils/MockData";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import RestaurantCard from './RestaurantCard'; // Ensure this import is correct and the file exists
 
 const Body = () => {
+
+    //FIRST WAY
+
 //   const [listOfRestaurants, setlistOfRestaurants] = useState([
 //     {
 //       info: {
@@ -45,7 +48,29 @@ const Body = () => {
 //     },
 //   ]);
 
-    const [listOfRestaurants, setlistOfRestaurants] = useState(ResList)
+    //SECOND WAY
+
+    // const [listOfRestaurants, setlistOfRestaurants] = useState(ResList)
+
+    //THIRD WAY -> FETCH
+
+    const [listOfRestaurants, setlistOfRestaurants] = useState([])
+
+    useEffect(()=>{
+        fetchData();
+    }, [])
+
+    const fetchData = async ()=>{
+        const data = await fetch(
+            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.514858060761934&lng=76.66194017976521&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        );
+
+        const json = await data.json();
+         console.log(json);
+        //  setlistOfRestaurants(data?.restaurants || []);
+        setlistOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    }
+
 
   return (
     <div className="body">
@@ -55,7 +80,7 @@ const Body = () => {
           onClick={() => {
             // Filter logic here
             const filteredList = listOfRestaurants.filter(
-              (res) => res.info.avgRating > 4
+              (res) => res.info.avgRating > 4.1
             );
             setlistOfRestaurants(filteredList);
           }}
