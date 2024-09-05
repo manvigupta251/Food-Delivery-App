@@ -55,7 +55,10 @@ const Body = () => {
 
     //THIRD WAY -> FETCH
 
-    const [listOfRestaurants, setlistOfRestaurants] = useState([])
+    const [listOfRestaurants, setlistOfRestaurants] = useState([]);
+    const [filteredListOfRestaurants, setfilteredListOfRestaurants] = useState([]);
+    const [searchValue, setSearchValue] = useState("");
+    
 
     useEffect(()=>{
         fetchData();
@@ -63,13 +66,31 @@ const Body = () => {
 
     const fetchData = async ()=>{
         const data = await fetch(
-            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.514858060761934&lng=76.66194017976521&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+          "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.4669058&lng=77.0662896&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+            // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.514858060761934&lng=76.66194017976521&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
         );
 
         const json = await data.json();
-         console.log(json);
+        //  console.log(json);
         //  setlistOfRestaurants(data?.restaurants || []);
         setlistOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setfilteredListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        
+    }
+
+    const handleInputEnter = (e) => {
+      if(e.code === 'Enter') {
+          joinFilter();
+      }
+    }
+
+    const joinFilter = ()=>{
+      const filteredRestaurant = listOfRestaurants.filter((res) => 
+        res.info.name.toLowerCase().includes(searchValue.toLowerCase())
+      );
+
+      // Update the state variable
+      setfilteredListOfRestaurants(filteredRestaurant);   
     }
 
     //SHIMMER EFFECT   &  CONDITIONAL RENDERING
@@ -77,6 +98,21 @@ const Body = () => {
     return (listOfRestaurants.length === 0) ? <Shimmer /> : (
     <div className="body">
       <div className="filter">
+
+    {/* SEARCH AND FILTER RATING FUNCTIONALITY */}
+
+      <div className="search">
+        <input type="text" className="search-box" value={searchValue}  onChange={(e) =>{
+              setSearchValue(e.target.value);
+          }}
+        />
+         <button  onKeyUp={handleInputEnter} onClick={joinFilter}>
+            {/* // Filter the restaurant cards and update the UI */}
+            Search
+          </button>
+      </div>
+      
+
         <button
           className="filter-btn"
           onClick={() => {
@@ -92,7 +128,7 @@ const Body = () => {
       </div>
 
       <div className="res-container">
-        {listOfRestaurants.map((restaurant) => (
+        {filteredListOfRestaurants.map((restaurant) => (
           <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
       </div>

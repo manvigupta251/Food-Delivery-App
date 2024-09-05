@@ -1,113 +1,182 @@
+/* General Page Styling */
+body {
+    background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-attachment: fixed; /* Makes the gradient stay in place during scroll */
+    background-size: cover;
+}
+
+/* Header Styling */
 .header {
-    display:flex;
-    background-color: #f8f9fa;
-    /* padding: 20px; */
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.85); /* Increased transparency */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(8px);
+}
+
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align the logo to the left */
+    margin-left: 0px; /* Adjust left margin for spacing */
+    padding: 0px; /* Add padding around the logo container */
+}
+
+.logo {
+    margin-left: 20px;
+    width: 150px;
+    height: auto; /* Maintain aspect ratio */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1)); /* Add a subtle shadow for depth */
+}
+
+.logo:hover {
+    transform: scale(1.09); /* Slightly enlarge the logo on hover */
+    filter: drop-shadow(0px 6px 8px rgba(0, 0, 0, 0.2)); /* Deepen the shadow on hover */
+}
+
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures logo and nav items are spread across the navbar */
+    padding: 0 20px; /* Add some padding to the sides of the header */
+    background-color: #b12b5cb6; /* Navbar background color */
+    
 }
 
 .logo-container {
-    
-    display: inline-block;
-    vertical-align: middle;
-    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 
 .nav-items {
-    padding: 0px 20px;
+    flex: 1; /* Allows the nav items to take up remaining space */
+    display: flex;
+    justify-content: center; /* Centers the nav items within their container */
+    padding: 0;
+    color: #fda085;
 }
 
 .nav-items ul {
     list-style-type: none;
-    font-size: 24px;
-    margin-left: 250px;
-    margin-right: 250px;    
     display: flex;
-    vertical-align:middle;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-items li {
-    /* display: inline; */
-    margin: 25px;
-    padding: 20px;  
+    margin: 0 20px;
+    padding: 10px 15px;
     cursor: pointer;
+    font-size: 18px;
+    transition: color 0.3s ease;
 }
 
-.logo {
-    margin-left: 50px;
-    width: 200px; /* Example styling */
+.nav-items li:hover {
+    color: #d35400; /* Subtle hover effect */
 }
+
+/* Basic button styling */
+button.login {
+    background-color:#d35400;
+    color: #ffffff;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+.login:hover {
+    background-color:  #e67e22; /* Darker shade of blue on hover */
+    transform: translateY(-2px); /* Slightly lifts the button on hover */
+}
+
+.login:active {
+    background-color:  #e67e22; /* Even darker shade for active state */
+    transform: translateY(0); /* Reset the lift on click */
+}
+
 
 .search {
-    padding: 15px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    width: 200px;
 }
 
-
-/* index.css */
-
+/* Restaurant Container */
 .res-container {
     display: flex;
-    flex-wrap: wrap;     
-    
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Adjusts columns based on screen size */
-    gap: 10px; /* Space between grid items */
-    padding: 20px;
-    max-width: 100%; /* Ensure the grid container uses the full width */
-    margin: 0 auto; /* Centers the grid container */
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
     box-sizing: border-box;
 }
 
+/* Restaurant Card Styling */
 .res-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 300px; /* Increased width */
+    width: 300px;
     min-height: 250px;
-    background-color: #e8e3e3;
+    background-color: #ffffff;
     padding: 20px;
     text-align: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin: 15px; /* Increased margin for better spacing between cards */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    margin: 20px;
     box-sizing: border-box;
-    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-
 
 .res-card:hover {
     cursor: pointer;
-    border: 2px solid #007BFF; /* New border on hover */
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    border: 2px solid #e67e22;
 }
-
 
 .resimg {
-    max-width: 100%; /* Makes the image responsive */
+    max-width: 100%;
     height: auto;
-    /* margin-top: 20px; Adds space above the image to push it down */
-    /* margin-bottom: 20px; Keeps the space below the image */
-    margin-left: 0px;
-    padding: 5px;   
+    padding: 5px;
+    border-radius: 8px;
 }
 
+/* Shimmer Effect Styling */
 .shimmer-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Center the shimmer cards */
-    gap: 20px; /* Add some space between the shimmer cards */
-    padding: 20px; /* Add padding to the container */
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
 }
 
 .shimmer-cards {
     height: 400px;
     width: 250px;
     background-color: #f6f7f8;
-    border-radius: 12px; /* Increase the border-radius for a softer look */
+    border-radius: 12px;
     margin: 15px;
     box-sizing: border-box;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soften the shadow */
-
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background: linear-gradient(90deg, #f6f7f8 25%, #edeef1 50%, #f6f7f8 75%);
     background-size: 200% 100%;
     animation: shimmer 1.6s infinite linear;
@@ -122,9 +191,112 @@
     }
 }
 
-  
-  
+
+.filter {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    margin: 20px 0; /* Add some space above and below the button */
+    gap: 20px; /* Space between the search and filter button */
+    align-items: center;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between search box and button */
+}
+
+.search-box {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: 2px solid #8f94fb;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-box:focus {
+    border-color: #4e54c8;
+    outline: none; /* Removes the white outline */
+}
+
+/* Styling for the search button */
+.search button {
+    background-color: #4e54c8;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.search button:hover {
+    background-color: #e67e22;
+    transform: scale(1.05); /* Slightly enlarges button on hover */
+}
+
+.filter-btn {
+    background-color:  #4e54c8;;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 24px;
+    margin-left: 15vh;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    
+}
+
+
+
+/* Optional: style filter container for responsiveness */
+@media (max-width: 768px) {
+    .filter {
+        flex-direction: column; /* Stack items on small screens */
+        gap: 10px;
+    }
+}
 
 
 
 
+.filter-btn:hover {
+    background-color: #d35400; /* Darker shade on hover */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+    transform: translateY(-3px); /* Slight lift effect on hover */
+}
+
+.filter-btn:active {
+    background-color: #c0392b; /* Even darker shade on click */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Reduce shadow on click */
+    transform: translateY(1px); /* Push down slightly on click */
+}
+
+
+
+
+/* Footer Styling */
+footer {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    backdrop-filter: blur(8px);
+}
+
+footer a {
+    color: #e67e22;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #d35400;
+}
