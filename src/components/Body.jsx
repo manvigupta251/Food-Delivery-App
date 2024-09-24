@@ -85,6 +85,12 @@ const Body = () => {
     }
 
     const joinFilter = ()=>{
+
+      if (searchValue === "") {
+        setfilteredListOfRestaurants(listOfRestaurants);
+        return;
+      }
+
       const filteredRestaurant = listOfRestaurants.filter((res) => 
         res.info.name.toLowerCase().includes(searchValue.toLowerCase())
       );
@@ -137,3 +143,22 @@ const Body = () => {
 };
 
 export default Body;
+
+
+// const [count, setCount] = useState(0);
+// const [count1, setCount1] = useState(1);
+
+
+//if cnt 1 change print A : cnt 2 change print B
+
+// {/* useEffect(()=>{
+// {ans}==="count" ?  console.log('A') : console(B);
+// }, [count, count1]) */}
+
+
+// useEffect(()=>{console(A)}, [count])
+
+// useEffect(()=>{console(B)}, [count1])
+
+
+

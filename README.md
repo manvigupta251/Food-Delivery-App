@@ -1,8 +1,7 @@
-# NOTES
-To initialise project first do npm init -> npm i react -> npm i react-dom -> npm i -D parcel -> then make root to render 
-for image import logo from './logo.png'  THEN <img className="logo" src={logo} alt="Logo"></img>
-now for linking css file use <link rel = "stylesheet" href="index.css">
-for css main main req are padding margin justify content display: flex
-header body search restaurant card -> for flashcards css basically margin padding widht height is required with some hover effects border and color -> for multiple flashcards diff data we use PROPS basically argumnets bhejre hain
-what swiggy has done it is CONFIG DRIVEN UI
-live api se data fetch resData.restrau.info.name or smthng resData here is props key and contains props pf pbj resObj and to put cuisines woth comma we use .join(", ") -> for img url src link + cloudanry imgid
+This is the frontend of a food delivery app, created using modern web development technologies. The project emulates the user interface (UI) and functionality of a customer-facing food ordering website, displaying restaurants, food items, search, and other key features.
+
+🎯 Features Home Page: Display a list of restaurants with filters (cuisine, ratings, delivery time, etc.). Search Functionality: Find restaurants or dishes by name. Responsive Design: Optimized for both desktop and mobile screens. Cart UI: Ability to add/remove items to a cart (UI only, no backend logic).
+
+👩‍💻 Contributing Contributions, issues, and feature requests are welcome!
+
+Fork the project Create your feature branch (git checkout -b feature/my-feature) Commit your changes (git commit -m 'Add some feature') Push to the branch (git push origin feature/my-feature) Open a pull request
